@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "KittyReplace",
+  "version": "1.0.0",
+  "description": "Replaces all images on a webpage with random cat images.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

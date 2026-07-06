@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <div class="app">
+    <h1>Rock Paper Scissors</h1>
+    <p class="subtitle">Choose your weapon</p>
+
+    <div class="scoreboard">
+      <div class="score-box">
+        <span class="score-label">You</span>
+        <span class="score-value" id="playerScore">0</span>
+      </div>
+      <div class="score-divider">
+        <span>VS</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Computer</span>
+        <span class="score-value" id="computerScore">0</span>
+      </div>
+    </div>
+
+    <div class="choices">
+      <button class="choice-btn" data-choice="rock" onclick="play('rock')">
+        <span class="choice-icon">🪨</span>
+        <span class="choice-label">Rock</span>
+      </button>
+      <button class="choice-btn" data-choice="paper" onclick="play('paper')">
+        <span class="choice-icon">📄</span>
+        <span class="choice-label">Paper</span>
+      </button>
+      <button class="choice-btn" data-choice="scissors" onclick="play('scissors')">
+        <span class="choice-icon">✂️</span>
+        <span class="choice-label">Scissors</span>
+      </button>
+    </div>
+
+    <div class="result-area" id="resultArea">
+      <div class="result-display">
+        <div class="result-player">
+          <span class="result-label">You</span>
+          <span class="result-choice" id="playerChoice">?</span>
+        </div>
+        <div class="result-vs">vs</div>
+        <div class="result-computer">
+          <span class="result-label">Computer</span>
+          <span class="result-choice" id="computerChoice">?</span>
+        </div>
+      </div>
+      <div class="result-text" id="resultText">Pick a choice to start</div>
+    </div>
+
+    <div class="history-section">
+      <div class="history-header">
+        <h2>Round History</h2>
+        <button class="btn-reset" onclick="resetGame()">Reset</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <div class="history-empty">No rounds played yet</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

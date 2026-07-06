@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA / CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>GPA / CGPA Calculator</h1>
+    <p class="subtitle">Add your subjects, credits &amp; grades to track performance</p>
+
+    <div class="summary-cards">
+      <div class="card">
+        <div class="label">Semester GPA</div>
+        <div class="value gpa" id="gpaDisplay">0.00</div>
+      </div>
+      <div class="card">
+        <div class="label">Cumulative CGPA</div>
+        <div class="value cgpa" id="cgpaDisplay">0.00</div>
+      </div>
+      <div class="card">
+        <div class="label">What-If CGPA</div>
+        <div class="value projected" id="whatifDisplay">—</div>
+      </div>
+      <div class="card">
+        <div class="label">Total Credits</div>
+        <div class="value" id="creditsDisplay" style="color:#e2e8f0;">0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Add Subject</h2>
+        <span class="badge" id="semesterLabel">Semester 1</span>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Subject Name</label>
+          <input type="text" id="subjectName" placeholder="e.g. Mathematics" />
+        </div>
+        <div class="field" style="flex:0.5;min-width:80px;">
+          <label>Credits</label>
+          <input type="number" id="subjectCredits" min="1" max="30" value="3" />
+        </div>
+        <div class="field" style="flex:0.5;min-width:90px;">
+          <label>Grade</label>
+          <select id="subjectGrade">
+            <option value="10">S (10)</option>
+            <option value="9">A (9)</option>
+            <option value="8">B (8)</option>
+            <option value="7">C (7)</option>
+            <option value="6">D (6)</option>
+            <option value="5">E (5)</option>
+            <option value="0">F (0)</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="addSubject()">+ Add</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="subjectTable">
+          <tr><td colspan="4" class="empty-msg">No subjects added yet</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn btn-secondary btn-sm" onclick="nextSemester()">Next Semester</button>
+        <button class="btn btn-danger btn-sm" onclick="clearAll()">Clear All</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>What-If Mode</h2>
+        <div class="whatif-toggle">
+          <span style="font-size:0.8rem;color:#94a3b8;">Off</span>
+          <div class="toggle-track" id="whatifToggle" onclick="toggleWhatIf()">
+            <div class="toggle-knob"></div>
+          </div>
+          <span style="font-size:0.8rem;color:#94a3b8;">On</span>
+        </div>
+      </div>
+      <div id="whatifSection" style="display:none;">
+        <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:1rem;">
+          Predict future semesters to see what CGPA you can achieve by graduation.
+        </p>
+        <div class="row">
+          <div class="field" style="flex:0.5;min-width:80px;">
+            <label>Credits</label>
+            <input type="number" id="whatifCredits" min="1" max="30" value="15" />
+          </div>
+          <div class="field" style="flex:0.5;min-width:90px;">
+            <label>Target Grade</label>
+            <select id="whatifGrade">
+              <option value="10">S (10)</option>
+              <option value="9">A (9)</option>
+              <option value="8">B (8)</option>
+              <option value="7">C (7)</option>
+              <option value="6">D (6)</option>
+              <option value="5">E (5)</option>
+            </select>
+          </div>
+          <button class="btn btn-warning" onclick="addWhatIf()">+ Add Semester</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Semester</th>
+              <th>Credits</th>
+              <th>Target GPA</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="whatifTable">
+            <tr><td colspan="4" class="empty-msg">No simulated semesters</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Soundboard</title>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>Soundboard</h1>
+        <p class="subtitle">Click a pad or press a key to play</p>
+      </div>
+      <div class="controls">
+        <button class="btn-demo" id="demoBtn" onclick="toggleDemo()">▶ Demo</button>
+        <div class="volume-group">
+          <span class="vol-icon" id="volIcon">🔊</span>
+          <input type="range" id="volumeSlider" min="0" max="100" value="70" class="vol-slider">
+          <span class="vol-value" id="volValue">70%</span>
+        </div>
+        <button class="btn-stop" onclick="stopAll()">⏹ Stop All</button>
+      </div>
+    </header>
+
+    <div class="grid" id="padGrid"></div>
+
+    <div class="footer">
+      <span id="statusText">Ready</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

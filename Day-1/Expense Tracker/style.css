@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  background: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 860px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666666;
+  margin-bottom: 2.5rem;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+/* ── Summary Cards ── */
+.summary-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 2rem;
+  background: #1a1a1a;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+}
+
+.card {
+  background: #0a0a0a;
+  padding: 1.4rem 1rem;
+  text-align: center;
+}
+
+.card .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555555;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.card .value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.card .value.this-month { color: #ffffff; }
+.card .value.budget-left { color: #4ade80; }
+.card .value.total-expenses { color: #ffffff; }
+
+/* ── Sections ── */
+.section {
+  background: #0a0a0a;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #1a1a1a;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+/* ── Form Fields ── */
+.row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: end;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.field {
+  flex: 1;
+  min-width: 100px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.7rem;
+  color: #555555;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #333333;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03);
+}
+
+.field input::placeholder {
+  color: #333333;
+}
+
+.field select option {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* ── Buttons ── */
+.btn {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+}
+
+.btn-danger {
+  background: #1a1a1a;
+  color: #ef4444;
+  border: 1px solid #2a1515;
+}
+
+.btn-danger:hover {
+  background: #2a1515;
+}
+
+.btn-secondary {
+  background: #111111;
+  color: #888888;
+  border: 1px solid #222222;
+}
+
+.btn-secondary:hover {
+  background: #1a1a1a;
+  color: #aaaaaa;
+}
+
+.btn-warning {
+  background: #ffffff;
+  color: #000000;
+}
+
+.btn-warning:hover {
+  background: #e5e5e5;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+}
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid #151515;
+  font-size: 0.82rem;
+}
+
+th {
+  color: #444444;
+  font-weight: 500;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.8rem;
+}
+
+td:last-child, th:last-child {
+  text-align: right;
+  width: 70px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #333333;
+  padding: 2.5rem 0;
+  font-size: 0.85rem;
+}
+
+/* ── Category Badges ── */
+.cat-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.cat-Food { background: #0a2e1a; color: #4ade80; }
+.cat-Transport { background: #0c1e30; color: #60a5fa; }
+.cat-Entertainment { background: #2a1030; color: #e879f9; }
+.cat-Bills { background: #2a2008; color: #facc15; }
+.cat-Shopping { background: #2a1808; color: #fb923c; }
+.cat-Health { background: #2a0f0f; color: #f87171; }
+.cat-Education { background: #0c2a2e; color: #67e8f9; }
+.cat-Other { background: #1a1a1a; color: #888888; }
+
+.amt {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.amt.negative { color: #ef4444; }
+
+/* ── Action Buttons ── */
+.delete-btn, .edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.4rem;
+  transition: opacity 0.15s;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  color: #555555;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.edit-btn {
+  color: #555555;
+}
+
+.edit-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Filters ── */
+.filter-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-row select {
+  padding: 0.4rem 0.6rem;
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  color: #888888;
+  font-size: 0.75rem;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ── Chart Tabs ── */
+.chart-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: #111111;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.chart-tab {
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #555555;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.chart-tab:hover {
+  color: #888888;
+}
+
+.chart-tab.active {
+  background: #222222;
+  color: #ffffff;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 260px;
+}
+
+/* ── Budget Bars ── */
+.budget-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.budget-bar-label {
+  min-width: 90px;
+  font-size: 0.75rem;
+  color: #555555;
+  font-weight: 500;
+}
+
+.budget-bar-track {
+  flex: 1;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.budget-bar-fill.safe { background: #4ade80; }
+.budget-bar-fill.warn { background: #facc15; }
+.budget-bar-fill.danger { background: #ef4444; }
+
+.budget-bar-text {
+  min-width: 110px;
+  text-align: right;
+  font-size: 0.7rem;
+  color: #555555;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Responsive ── */
+@media (max-width: 550px) {
+  .summary-cards { grid-template-columns: 1fr; }
+  .row { flex-direction: column; }
+  .field { min-width: 100%; }
+}

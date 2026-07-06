@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    <p class="subtitle">Track, categorize, and analyze your spending</p>
+
+    <div class="summary-cards">
+      <div class="card">
+        <div class="label">This Month</div>
+        <div class="value this-month" id="thisMonthAmt">₹0</div>
+      </div>
+      <div class="card">
+        <div class="label">Budget Left</div>
+        <div class="value budget-left" id="budgetLeft">₹0</div>
+      </div>
+      <div class="card">
+        <div class="label">Total Expenses</div>
+        <div class="value total-expenses" id="totalExpenses">₹0</div>
+      </div>
+      <div class="card">
+        <div class="label">Categories Used</div>
+        <div class="value" id="categoriesUsed" style="color:#e2e8f0;">0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Add Expense</h2>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Description</label>
+          <input type="text" id="expenseDesc" placeholder="e.g. Groceries" />
+        </div>
+        <div class="field" style="flex:0.5;min-width:90px;">
+          <label>Amount (₹)</label>
+          <input type="number" id="expenseAmt" min="1" step="0.01" placeholder="0" />
+        </div>
+        <div class="field" style="flex:0.5;min-width:120px;">
+          <label>Category</label>
+          <select id="expenseCategory">
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field" style="flex:0.5;min-width:110px;">
+          <label>Date</label>
+          <input type="date" id="expenseDate" />
+        </div>
+        <button class="btn btn-primary" onclick="addExpense()">+ Add</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Budget Limits</h2>
+        <button class="btn btn-secondary btn-sm" onclick="setBudget()">Set Budget</button>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Monthly Budget (₹)</label>
+          <input type="number" id="budgetInput" min="0" step="100" placeholder="e.g. 50000" />
+        </div>
+        <div class="field" style="flex:1;min-width:140px;">
+          <label>Category (optional)</label>
+          <select id="budgetCategory">
+            <option value="__overall__">Overall</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div id="budgetBars"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>Charts</h2>
+        <div class="chart-tabs">
+          <button class="chart-tab active" data-chart="categoryChart" onclick="switchChart('categoryChart', this)">Categories</button>
+          <button class="chart-tab" data-chart="monthlyChart" onclick="switchChart('monthlyChart', this)">Monthly</button>
+        </div>
+      </div>
+      <div class="chart-wrapper">
+        <canvas id="categoryChart"></canvas>
+        <canvas id="monthlyChart" style="display:none;"></canvas>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>All Expenses</h2>
+        <div class="filter-row">
+          <select id="filterMonth" onchange="render()" style="padding:0.35rem 0.5rem;background:#0f172a;border:1px solid #334155;border-radius:6px;color:#e2e8f0;font-size:0.8rem;outline:none;"></select>
+          <select id="filterCategory" onchange="render()" style="padding:0.35rem 0.5rem;background:#0f172a;border:1px solid #334155;border-radius:6px;color:#e2e8f0;font-size:0.8rem;outline:none;"></select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable">
+          <tr><td colspan="5" class="empty-msg">No expenses yet</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:0.75rem;text-align:right;font-size:0.85rem;color:#94a3b8;">
+        Showing: <span id="filteredTotal">₹0</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
