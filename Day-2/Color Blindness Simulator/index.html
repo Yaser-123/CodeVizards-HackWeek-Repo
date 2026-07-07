@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Blindness Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- SVG Filters Definition (Hidden) -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="protanopia">
+                <feColorMatrix type="matrix" values="0.112, 0.888, 0.000, 0, 0  0.112, 0.888, 0.000, 0, 0  0.002, -0.002, 1.000, 0, 0  0, 0, 0, 1, 0"/>
+            </filter>
+            <filter id="deuteranopia">
+                <feColorMatrix type="matrix" values="0.367, 0.633, 0.000, 0, 0  0.280, 0.720, 0.000, 0, 0  -0.012, 0.012, 1.000, 0, 0  0, 0, 0, 1, 0"/>
+            </filter>
+            <filter id="tritanopia">
+                <feColorMatrix type="matrix" values="1.000, 0.171, -0.171, 0, 0  0.000, 0.910, 0.090, 0, 0  0.000, 0.883, 0.117, 0, 0  0, 0, 0, 1, 0"/>
+            </filter>
+            <filter id="achromatopsia">
+                <feColorMatrix type="matrix" values="0.299, 0.587, 0.114, 0, 0  0.299, 0.587, 0.114, 0, 0  0.299, 0.587, 0.114, 0, 0  0, 0, 0, 1, 0"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 10 0 1 0 20 0 10 10 0 1 0-20 0"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 22a10 10 0 0 1-10-10"/></svg>
+                </div>
+                <h2>VisionSim</h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="active">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span> Simulator
+                </li>
+            </ul>
+
+            <div class="theme-info">
+                <p>Experience the world through different eyes.</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>Color Blindness Simulator</h1>
+                    <p class="subtitle">Upload an image to preview how it appears under different vision conditions.</p>
+                </div>
+                <button class="btn btn-secondary hidden" id="downloadBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Download Image
+                </button>
+            </header>
+
+            <div class="simulator-grid">
+                <!-- Workspace -->
+                <div class="workspace-area">
+                    <!-- Upload State -->
+                    <div class="upload-zone glass-card" id="uploadZone">
+                        <input type="file" id="fileInput" accept="image/*" class="hidden-input">
+                        <div class="upload-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                            <h3>Upload an Image</h3>
+                            <p>Drag and drop or click to browse</p>
+                            <span class="btn btn-primary mt-4">Select Image</span>
+                        </div>
+                    </div>
+
+                    <!-- Compare State -->
+                    <div class="compare-zone hidden" id="compareZone">
+                        <div class="glass-card image-wrapper" id="imageWrapper">
+                            <!-- Base Image (Simulated) -->
+                            <img id="simulatedImg" src="" alt="Simulated Vision">
+                            
+                            <!-- Overlay Image (Original) -->
+                            <div class="original-overlay" id="originalOverlay">
+                                <img id="originalImg" src="" alt="Original Vision">
+                            </div>
+                            
+                            <!-- Compare Slider -->
+                            <div class="slider-handle" id="sliderHandle">
+                                <div class="slider-line"></div>
+                                <div class="slider-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="m9 18 6-6-6-6"/></svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Badges -->
+                            <div class="badge badge-left">Original</div>
+                            <div class="badge badge-right" id="simBadge">Protanopia</div>
+                        </div>
+                        
+                        <div class="workspace-actions mt-4">
+                            <button class="btn btn-text" id="resetUploadBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                                Try Another Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls Panel -->
+                <div class="controls-area">
+                    <div class="glass-card controls-card">
+                        <h3>Vision Modes</h3>
+                        <p class="settings-desc">Select a color vision deficiency to simulate.</p>
+                        
+                        <div class="mode-options" id="modeOptions">
+                            <button class="mode-btn active" data-filter="protanopia">
+                                <div class="mode-color" style="background: #E67A53;"></div>
+                                <div class="mode-info">
+                                    <h4>Protanopia</h4>
+                                    <p>Red-blindness</p>
+                                </div>
+                            </button>
+                            
+                            <button class="mode-btn" data-filter="deuteranopia">
+                                <div class="mode-color" style="background: #95B288;"></div>
+                                <div class="mode-info">
+                                    <h4>Deuteranopia</h4>
+                                    <p>Green-blindness</p>
+                                </div>
+                            </button>
+                            
+                            <button class="mode-btn" data-filter="tritanopia">
+                                <div class="mode-color" style="background: #5383E6;"></div>
+                                <div class="mode-info">
+                                    <h4>Tritanopia</h4>
+                                    <p>Blue-blindness</p>
+                                </div>
+                            </button>
+                            
+                            <button class="mode-btn" data-filter="achromatopsia">
+                                <div class="mode-color" style="background: #888888;"></div>
+                                <div class="mode-info">
+                                    <h4>Achromatopsia</h4>
+                                    <p>Complete color blindness</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card controls-card mt-4">
+                        <h3>Information</h3>
+                        <p class="settings-desc">Drag the slider left and right to instantly compare the original image with the simulated vision.</p>
+                        <p class="settings-desc mt-2">Clicking <strong>Download</strong> will process and save the simulated version to your device.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden Canvas for processing downloads -->
+    <canvas id="exportCanvas" style="display:none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

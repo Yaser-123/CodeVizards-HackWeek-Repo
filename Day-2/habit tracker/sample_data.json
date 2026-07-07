@@ -1,0 +1,682 @@
+{
+  "theme": "light",
+  "filter": "All",
+  "habits": [
+    {
+      "id": "101",
+      "name": "Read 20 Pages",
+      "category": "Learning",
+      "frequency": "daily",
+      "hasTarget": true,
+      "targetValue": 20,
+      "targetUnit": "pages",
+      "createdAt": "2026-05-01T00:00:00.000Z",
+      "history": {
+        "2026-07-07": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-06": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-05": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-04": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-03": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-02": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-07-01": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-30": {
+          "current": 10,
+          "completed": false
+        },
+        "2026-06-29": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-28": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-27": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-26": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-06-25": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-24": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-23": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-22": {
+          "current": 1,
+          "completed": false
+        },
+        "2026-06-21": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-20": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-19": {
+          "current": 2,
+          "completed": false
+        },
+        "2026-06-18": {
+          "current": 9,
+          "completed": false
+        },
+        "2026-06-17": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-16": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-15": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-14": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-13": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-12": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-11": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-10": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-09": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-06-08": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-07": {
+          "current": 12,
+          "completed": false
+        },
+        "2026-06-06": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-05": {
+          "current": 12,
+          "completed": false
+        },
+        "2026-06-04": {
+          "current": 10,
+          "completed": false
+        },
+        "2026-06-03": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-06-02": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-06-01": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-31": {
+          "current": 13,
+          "completed": false
+        },
+        "2026-05-30": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-29": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-28": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-27": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-26": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-25": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-24": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-23": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-22": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-05-21": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-20": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-19": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-18": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-17": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-16": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-15": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-14": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-13": {
+          "current": 4,
+          "completed": false
+        },
+        "2026-05-12": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-11": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-10": {
+          "current": 20,
+          "completed": true
+        },
+        "2026-05-09": {
+          "current": 20,
+          "completed": true
+        }
+      }
+    },
+    {
+      "id": "102",
+      "name": "Morning Workout",
+      "category": "Health",
+      "frequency": "daily",
+      "hasTarget": false,
+      "targetValue": 1,
+      "targetUnit": "times",
+      "createdAt": "2026-05-15T00:00:00.000Z",
+      "history": {
+        "2026-07-06": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-07-05": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-07-03": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-07-02": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-07-01": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-30": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-29": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-27": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-26": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-25": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-23": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-22": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-21": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-20": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-19": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-18": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-16": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-14": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-13": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-11": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-10": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-09": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-08": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-06": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-04": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-06-03": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-31": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-30": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-29": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-28": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-26": {
+          "current": 1,
+          "completed": true
+        },
+        "2026-05-25": {
+          "current": 1,
+          "completed": true
+        }
+      }
+    },
+    {
+      "id": "103",
+      "name": "Meditate",
+      "category": "Mindfulness",
+      "frequency": "daily",
+      "hasTarget": true,
+      "targetValue": 10,
+      "targetUnit": "mins",
+      "createdAt": "2026-06-01T00:00:00.000Z",
+      "history": {
+        "2026-07-07": {
+          "current": 6,
+          "completed": false
+        },
+        "2026-07-06": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-07-05": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-07-04": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-07-03": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-07-02": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-07-01": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-30": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-29": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-28": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-27": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-26": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-25": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-24": {
+          "current": 9,
+          "completed": false
+        },
+        "2026-06-23": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-22": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-21": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-20": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-19": {
+          "current": 9,
+          "completed": false
+        },
+        "2026-06-18": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-17": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-16": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-06-15": {
+          "current": 0,
+          "completed": false
+        },
+        "2026-06-14": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-13": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-12": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-11": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-10": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-09": {
+          "current": 9,
+          "completed": false
+        },
+        "2026-06-08": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-07": {
+          "current": 3,
+          "completed": false
+        },
+        "2026-06-06": {
+          "current": 10,
+          "completed": true
+        },
+        "2026-06-05": {
+          "current": 5,
+          "completed": false
+        },
+        "2026-06-04": {
+          "current": 6,
+          "completed": false
+        },
+        "2026-06-03": {
+          "current": 10,
+          "completed": true
+        }
+      }
+    },
+    {
+      "id": "104",
+      "name": "Drink Water",
+      "category": "Health",
+      "frequency": "daily",
+      "hasTarget": true,
+      "targetValue": 8,
+      "targetUnit": "glasses",
+      "createdAt": "2026-06-10T00:00:00.000Z",
+      "history": {
+        "2026-07-07": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-07-06": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-07-05": {
+          "current": 6,
+          "completed": false
+        },
+        "2026-07-04": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-07-03": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-07-02": {
+          "current": 7,
+          "completed": false
+        },
+        "2026-07-01": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-30": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-29": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-28": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-27": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-26": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-25": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-24": {
+          "current": 6,
+          "completed": false
+        },
+        "2026-06-23": {
+          "current": 7,
+          "completed": false
+        },
+        "2026-06-22": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-21": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-20": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-19": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-18": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-17": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-16": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-15": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-14": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-13": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-12": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-11": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-10": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-09": {
+          "current": 8,
+          "completed": true
+        },
+        "2026-06-08": {
+          "current": 8,
+          "completed": true
+        }
+      }
+    }
+  ]
+}

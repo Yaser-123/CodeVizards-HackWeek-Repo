@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardCraft — Premium Digital Business Card Generator</title>
+  <meta name="description" content="Create stunning digital business cards in seconds. Choose from premium templates, add your details, and download as PNG or PDF." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ Header ═══ -->
+  <header class="header" id="header">
+    <div class="header-left">
+      <div class="header-logo">CC</div>
+      <span class="header-title">CardCraft</span>
+      <span class="header-badge">Business Card Studio</span>
+    </div>
+    <div class="header-right">
+      <!-- reserved for future premium features -->
+    </div>
+  </header>
+
+  <!-- ═══ Toast Container ═══ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ═══ App ═══ -->
+  <div class="app">
+
+    <!-- ─── Sidebar: Form ─── -->
+    <aside class="sidebar" aria-label="Card editor">
+      <div class="sidebar-inner">
+
+        <!-- Section: Personal Info -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon purple">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="section-title">Personal Info</span>
+            <span class="section-sub">Required</span>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Full Name</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input class="form-input input-lg" id="name" type="text" placeholder="e.g. Sarah Chen" value="Sarah Chen" autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Job Title</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </span>
+              <input class="form-input input-lg" id="title" type="text" placeholder="e.g. Product Designer" value="Product Designer" />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Company</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </span>
+              <input class="form-input input-lg" id="company" type="text" placeholder="e.g. Acme Corp" value="Acme Corp" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Profile Photo -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon green">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <span class="section-title">Profile Photo</span>
+            <span class="section-sub">Optional</span>
+          </div>
+
+          <div class="image-upload">
+            <div class="image-preview-wrap">
+              <div class="image-preview" id="imagePreview">
+                <span class="image-preview-initials" id="previewInitials">SC</span>
+              </div>
+            </div>
+            <div class="image-actions">
+              <input type="file" id="imageInput" accept="image/*" hidden />
+              <button class="btn-upload" id="uploadBtn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Upload Photo
+              </button>
+              <button class="btn-clear" id="clearImage" type="button">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Contact -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon blue">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="section-title">Contact</span>
+            <span class="section-sub">Optional</span>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Email</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <input class="form-input" id="email" type="email" placeholder="sarah@acme.com" value="sarah@acme.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Phone</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <input class="form-input" id="phone" type="text" placeholder="+1 (555) 123-4567" value="+1 (555) 123-4567" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Website</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </span>
+              <input class="form-input" id="website" type="text" placeholder="acme.com" value="acme.com" />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label"><span>Location</span></div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <input class="form-input" id="location" type="text" placeholder="San Francisco, CA" value="San Francisco, CA" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Social Links -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon amber">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <span class="section-title">Social Links</span>
+            <span class="section-sub">Toggle visibility</span>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="social-row">
+            <div class="social-toggle active" data-social="linkedin" role="button" tabindex="0" aria-label="Toggle LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <input class="form-input social-input no-icon" data-social="linkedin" type="text" placeholder="LinkedIn URL" value="linkedin.com/in/sarahchen" />
+          </div>
+
+          <!-- Twitter / X -->
+          <div class="social-row">
+            <div class="social-toggle active" data-social="twitter" role="button" tabindex="0" aria-label="Toggle Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <input class="form-input social-input no-icon" data-social="twitter" type="text" placeholder="X / Twitter URL" value="twitter.com/sarahchen" />
+          </div>
+
+          <!-- GitHub -->
+          <div class="social-row">
+            <div class="social-toggle active" data-social="github" role="button" tabindex="0" aria-label="Toggle GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <input class="form-input social-input no-icon" data-social="github" type="text" placeholder="GitHub URL" value="github.com/sarahchen" />
+          </div>
+
+          <!-- Instagram -->
+          <div class="social-row">
+            <div class="social-toggle" data-social="instagram" role="button" tabindex="0" aria-label="Toggle Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <input class="form-input social-input no-icon" data-social="instagram" type="text" placeholder="Instagram URL" />
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ─── Preview Panel ─── -->
+    <main class="preview-panel">
+      <div class="preview-inner">
+
+        <!-- Template Selector -->
+        <div class="template-selector" role="tablist">
+          <button class="template-btn active" data-template="executive" role="tab" aria-selected="true">
+            <span class="swatch swatch-executive"></span>
+            Executive
+          </button>
+          <button class="template-btn" data-template="apex" role="tab" aria-selected="false">
+            <span class="swatch swatch-apex"></span>
+            Apex
+          </button>
+          <button class="template-btn" data-template="pristine" role="tab" aria-selected="false">
+            <span class="swatch swatch-pristine"></span>
+            Pristine
+          </button>
+          <button class="template-btn" data-template="radiance" role="tab" aria-selected="false">
+            <span class="swatch swatch-radiance"></span>
+            Radiance
+          </button>
+        </div>
+
+        <!-- Card Preview -->
+        <div class="card-stage">
+          <div id="card-capture"></div>
+        </div>
+
+        <!-- Download Actions -->
+        <div class="download-actions">
+          <button class="btn btn-primary" id="downloadPng" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="btn-text">Download PNG</span>
+          </button>
+          <button class="btn btn-secondary" id="downloadPdf" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span class="btn-text">Download PDF</span>
+          </button>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

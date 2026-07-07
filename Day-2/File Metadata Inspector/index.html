@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Metadata Inspector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EXIF.js for Image Metadata -->
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    
+    <!-- PDF.js for PDF Metadata -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set worker path for PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+</head>
+<body class="dark-theme">
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <h1>Metadata Inspector</h1>
+            </div>
+            <p class="subtitle">Extract deep metadata from Images and PDFs instantly.</p>
+        </header>
+
+        <!-- Drag & Drop Zone -->
+        <div class="upload-zone glass-card" id="uploadZone">
+            <input type="file" id="fileInput" class="hidden-input" accept="image/*,application/pdf">
+            <div class="upload-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                <h3>Drag & Drop a File</h3>
+                <p>or click to browse (Images & PDFs)</p>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section hidden" id="resultsSection">
+            <div class="file-summary glass-card">
+                <div class="file-icon" id="fileIcon"></div>
+                <div class="file-info-header">
+                    <h2 id="fileName">filename.jpg</h2>
+                    <span class="file-badge" id="fileTypeBadge">IMAGE</span>
+                </div>
+            </div>
+
+            <div class="file-preview-container glass-card hidden" id="filePreviewContainer">
+                <!-- Preview will be injected here -->
+            </div>
+
+            <div class="metadata-grid" id="metadataGrid">
+                <!-- Data will be injected here via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
