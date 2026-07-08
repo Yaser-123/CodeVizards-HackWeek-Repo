@@ -32,6 +32,26 @@ All projects are built with **HTML, CSS, and JavaScript**.
 | 5 | [Rock Paper Scissors](Day-1/Rock%20Paper%20Scissor) | Player vs computer game with score tracking and round history |
 | 6 | [Soundboard](Day-1/Soundboard) | Browser soundboard with16 programmatically generated sounds, volume control, and demo beat |
 
+### Day 2 — July 7
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | [Color Blindness Simulator](Day-2/Color%20Blindness%20Simulator) | Simulate how webpages look for different types of color blindness |
+| 2 | [Digital Business Card Generator](Day-2/Digital%20Business%20Card%20Generator) | Generate and customize interactive digital business cards |
+| 3 | [Digital Time Capsule](Day-2/Digital%20Time%20Capsule) | Save messages or files to be unlocked at a future date |
+| 4 | [File Metadata Inspector](Day-2/File%20Metadata%20Inspector) | Inspect detailed file metadata directly in the browser |
+| 5 | [Live Collaborative White Board](Day-2/Live%20Collaborative%20White%20Board) | A real-time drawing canvas for multiple users |
+| 6 | [Habit Tracker](Day-2/habit%20tracker) | Track daily habits over time with persistence |
+
+### Day 3 — July 8
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | [A Tiny Programming Language](Day-3/A%20Tiny%20Programming%20Language) | VibeScript: A custom meme-based programming language interpreter built in Python |
+| 2 | [Chat with Ollama](Day-3/Chat%20with%20Ollama) | A local chatbot interface communicating with an Ollama LLM backend |
+| 3 | [Secret Scanner](Day-3/Secret%20Scanner) | A local security tool to scan Git repositories for accidentally exposed API keys |
+| 4 | [Shopping Web App](Day-3/Shopping%20Web%20App) | An interactive e-commerce product catalog UI |
+
 ---
 
 ## Tech Stack

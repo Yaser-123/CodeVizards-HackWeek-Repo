@@ -66,7 +66,7 @@ def scan_file(filepath):
 
 def print_header():
     print(f"\n{Colors.OKCYAN}{Colors.BOLD}========================================={Colors.ENDC}")
-    print(f"{Colors.OKCYAN}{Colors.BOLD}🛡️  SECRET SCANNER - PRE-COMMIT CHECK 🛡️{Colors.ENDC}")
+    print(f"{Colors.OKCYAN}{Colors.BOLD}[*]  SECRET SCANNER - PRE-COMMIT CHECK [*]{Colors.ENDC}")
     print(f"{Colors.OKCYAN}{Colors.BOLD}========================================={Colors.ENDC}\n")
 
 def main():
@@ -75,10 +75,10 @@ def main():
     staged_files = get_staged_files()
     
     if not staged_files:
-        print(f"{Colors.OKBLUE}ℹ️ No staged files to scan. Skipping...{Colors.ENDC}\n")
+        print(f"{Colors.OKBLUE}[i] No staged files to scan. Skipping...{Colors.ENDC}\n")
         sys.exit(0)
         
-    print(f"{Colors.OKBLUE}🔍 Scanning {len(staged_files)} staged file(s) for sensitive data...{Colors.ENDC}\n")
+    print(f"{Colors.OKBLUE}[?] Scanning {len(staged_files)} staged file(s) for sensitive data...{Colors.ENDC}\n")
     
     all_violations = []
     for file in staged_files:
@@ -86,19 +86,19 @@ def main():
         all_violations.extend(violations)
         
     if all_violations:
-        print(f"{Colors.FAIL}{Colors.BOLD}🚨 CRITICAL: SECRETS DETECTED! 🚨{Colors.ENDC}")
+        print(f"{Colors.FAIL}{Colors.BOLD}[!] CRITICAL: SECRETS DETECTED! [!]{Colors.ENDC}")
         print(f"{Colors.WARNING}Commit aborted to prevent sensitive data exposure.{Colors.ENDC}\n")
         
         for v in all_violations:
-            print(f"{Colors.FAIL}✖ {Colors.BOLD}{v['type']}{Colors.ENDC} found in {Colors.UNDERLINE}{v['file']}{Colors.ENDC} on line {v['line_num']}")
-            print(f"  {Colors.OKBLUE}↳ {Colors.ENDC} {v['content']}")
+            print(f"{Colors.FAIL}X {Colors.BOLD}{v['type']}{Colors.ENDC} found in {Colors.UNDERLINE}{v['file']}{Colors.ENDC} on line {v['line_num']}")
+            print(f"  {Colors.OKBLUE}-> {Colors.ENDC} {v['content']}")
             print()
             
-        print(f"{Colors.OKCYAN}💡 Please remove these secrets and commit again.{Colors.ENDC}\n")
+        print(f"{Colors.OKCYAN}[*] Please remove these secrets and commit again.{Colors.ENDC}\n")
         sys.exit(1) # Block the commit
     else:
-        print(f"{Colors.OKGREEN}✅ Scan passed! No secrets detected.{Colors.ENDC}")
-        print(f"{Colors.OKGREEN}🚀 Committing...{Colors.ENDC}\n")
+        print(f"{Colors.OKGREEN}[V] Scan passed! No secrets detected.{Colors.ENDC}")
+        print(f"{Colors.OKGREEN}[*] Committing...{Colors.ENDC}\n")
         sys.exit(0) # Allow the commit
 
 if __name__ == "__main__":

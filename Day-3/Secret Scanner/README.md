@@ -37,10 +37,8 @@ To record your demo video, follow these steps to trigger a block:
    ```bash
    python install.py
    ```
-4. Create a dummy file called `config.js` and intentionally leak a fake API key:
-   ```javascript
-   const awsKey = "AKIA1234567890ABCDEF";
-   ```
+4. Go to the root of your repository and create a `dummy_secret.txt` file.
+4. Add a fake secret to it (e.g. `const awsKey = "AKIA_FAKE_1234567890";`)
 5. Try to commit the file:
    ```bash
    git add config.js

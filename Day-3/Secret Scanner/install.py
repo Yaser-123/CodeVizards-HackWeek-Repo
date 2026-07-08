@@ -16,15 +16,21 @@ def install_hook():
 
     # Get paths
     current_dir = os.path.abspath(os.getcwd())
-    git_dir = os.path.join(current_dir, '.git')
+    scanner_script = os.path.join(current_dir, 'secret_scanner.py')
+    
+    # Traverse up to find .git
+    git_root = current_dir
+    while not os.path.exists(os.path.join(git_root, '.git')):
+        parent = os.path.dirname(git_root)
+        if parent == git_root:
+            print(f"{Colors.FAIL}✖ Error: Not a Git repository!{Colors.ENDC}")
+            print(f"Could not find a .git folder in this directory or any parent directories.")
+            sys.exit(1)
+        git_root = parent
+
+    git_dir = os.path.join(git_root, '.git')
     hooks_dir = os.path.join(git_dir, 'hooks')
     pre_commit_file = os.path.join(hooks_dir, 'pre-commit')
-    scanner_script = os.path.join(current_dir, 'secret_scanner.py')
-
-    if not os.path.exists(git_dir):
-        print(f"{Colors.FAIL}✖ Error: Not a Git repository!{Colors.ENDC}")
-        print(f"Please run this script from the root of a Git repository.")
-        sys.exit(1)
 
     if not os.path.exists(scanner_script):
         print(f"{Colors.FAIL}✖ Error: 'secret_scanner.py' not found in current directory!{Colors.ENDC}")
