@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Scanner Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="shield-icon">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <!-- Scanner line moving up and down -->
+                        <line x1="6" y1="12" x2="18" y2="12" stroke="var(--success-foreground)" stroke-width="2">
+                            <animate attributeName="y1" values="6;16;6" dur="2s" repeatCount="indefinite" />
+                            <animate attributeName="y2" values="6;16;6" dur="2s" repeatCount="indefinite" />
+                        </line>
+                    </svg>
+                </div>
+                <h1>Secret Scanner</h1>
+            </div>
+            <p class="subtitle">Instantly detect exposed API keys, passwords, and tokens before you commit.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="text-tab"><i class="ph ph-text-t"></i> Paste Text</button>
+                <button class="tab-btn" data-tab="file-tab"><i class="ph ph-file-arrow-up"></i> Upload File</button>
+                <button class="tab-btn" data-tab="repo-tab"><i class="ph ph-github-logo"></i> GitHub Repo</button>
+                <button class="tab-btn" data-tab="monitor-tab"><i class="ph ph-activity"></i> Live Monitoring</button>
+            </div>
+
+            <div class="card glass-card">
+                
+                <!-- Text Tab -->
+                <div id="text-tab" class="tab-content active">
+                    <div class="card-header">
+                        <h2><i class="ph ph-code"></i> Paste Code to Scan</h2>
+                        <button class="secondary-btn clearBtn"><i class="ph ph-trash"></i> Clear</button>
+                    </div>
+                    <textarea id="codeInput" placeholder="Paste your code, configuration files, or text here..."></textarea>
+                    <div class="action-bar">
+                        <button id="scanTextBtn" class="primary-btn"><i class="ph ph-magnifying-glass"></i> Scan Text</button>
+                    </div>
+                </div>
+
+                <!-- File Tab -->
+                <div id="file-tab" class="tab-content hidden">
+                    <div class="card-header">
+                        <h2><i class="ph ph-file"></i> Upload File to Scan</h2>
+                    </div>
+                    <div class="file-upload-zone" id="dropZone">
+                        <i class="ph ph-upload-simple"></i>
+                        <p>Drag & drop a file here, or click to select</p>
+                        <input type="file" id="fileInput" class="hidden">
+                    </div>
+                    <div class="file-info hidden" id="fileInfo">
+                        <i class="ph ph-file-text"></i> <span id="fileName">No file selected</span>
+                    </div>
+                    <div class="action-bar">
+                        <button id="scanFileBtn" class="primary-btn"><i class="ph ph-magnifying-glass"></i> Scan File</button>
+                    </div>
+                </div>
+
+                <!-- Repo Tab -->
+                <div id="repo-tab" class="tab-content hidden">
+                    <div class="card-header">
+                        <h2><i class="ph ph-git-branch"></i> Scan & Monitor GitHub Repository</h2>
+                    </div>
+                    <p class="tab-description">Enter a public GitHub URL. The scanner will clone it, scan the entire history, and actively monitor it for new leaks.</p>
+                    <div class="input-group">
+                        <input type="text" id="repoInput" placeholder="https://github.com/username/repository">
+                    </div>
+                    <div class="action-bar">
+                        <button id="scanRepoBtn" class="primary-btn"><i class="ph ph-magnifying-glass"></i> Scan & Monitor</button>
+                    </div>
+                </div>
+                
+                <!-- Monitor Tab -->
+                <div id="monitor-tab" class="tab-content hidden">
+                    <div class="card-header">
+                        <h2><i class="ph ph-activity"></i> Live GitHub Monitoring</h2>
+                        <span class="live-badge"><span class="pulse-dot"></span> Live</span>
+                    </div>
+                    <p class="tab-description">Repositories you scan are automatically monitored here. We poll them every 10 seconds for new commits.</p>
+                    <div id="monitorList" class="monitor-list">
+                        <div class="empty-state">No repositories currently monitored.</div>
+                        <!-- Monitored repos injected here -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsArea" class="results-area hidden">
+                <h2>Scan Results</h2>
+                
+                <!-- Loading State -->
+                <div id="loadingState" class="state-container hidden">
+                    <div class="spinner"></div>
+                    <p id="loadingMsg">Scanning lines...</p>
+                </div>
+
+                <!-- Safe State -->
+                <div id="safeState" class="state-container safe hidden">
+                    <div class="state-icon"><i class="ph ph-check-circle"></i></div>
+                    <h3>No Secrets Detected</h3>
+                    <p>The code appears to be safe!</p>
+                </div>
+
+                <!-- Danger State -->
+                <div id="dangerState" class="state-container danger hidden">
+                    <div class="state-icon"><i class="ph ph-warning-circle"></i></div>
+                    <h3>Secrets Detected!</h3>
+                    <p>We found sensitive information that should not be committed.</p>
+                    
+                    <div id="violationsList" class="violations-list">
+                        <!-- Violations injected here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

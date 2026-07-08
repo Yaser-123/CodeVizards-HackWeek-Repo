@@ -1,0 +1,14 @@
+snatched n = 10
+snatched a = 0
+snatched b = 1
+snatched count = 0
+
+spill "Fibonacci Sequence:"
+
+keep_cooking count < n {
+    spill a
+    snatched next = a + b
+    snatched a = b
+    snatched b = next
+    snatched count = count + 1
+}

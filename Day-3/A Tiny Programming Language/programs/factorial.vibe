@@ -1,0 +1,13 @@
+snatched n = 20
+snatched result = 1
+snatched i = 1
+
+spill "Calculating factorial of 5..."
+
+keep_cooking i <= n {
+    snatched result = result * i
+    snatched i = i + 1
+}
+
+spill "Factorial is:"
+spill result

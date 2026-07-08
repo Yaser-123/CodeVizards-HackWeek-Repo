@@ -1,0 +1,16 @@
+snatched limit = 10
+snatched i = 1
+
+keep_cooking i <= limit {
+    sus i % 15 == 0 {
+        spill "FizzBuzz"
+    } cap sus i % 3 == 0 {
+        spill "Fizz"
+    } cap sus i % 5 == 0 {
+        spill "Buzz"
+    } cap {
+        spill i
+    }
+    
+    snatched i = i + 1
+}

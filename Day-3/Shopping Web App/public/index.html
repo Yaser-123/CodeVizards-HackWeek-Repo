@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShopper | The Smart Assistant</title>
+    <link rel="stylesheet" href="style.css?v=2.1">
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header & Search -->
+        <header class="glass-panel header">
+            <h1>AutoShopper <span class="badge">PRO</span></h1>
+            <p>Your automated personal shopping agent.</p>
+            <form id="searchForm" class="search-box">
+                <input type="text" id="searchInput" placeholder="e.g. Jordans under 50000 RS" required>
+                <button type="submit" id="searchBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </form>
+            
+            <div class="marketing-banner">
+                <p class="marketing-text">⚡ Instantly finds the cheapest, highest quality products across 8 trusted platforms without the manual search.</p>
+                <div class="platform-logos">
+                    <span class="logo-pill amazon"><img src="https://s2.googleusercontent.com/s2/favicons?domain=amazon.in&sz=64" alt="Amazon">Amazon</span>
+                    <span class="logo-pill flipkart"><img src="https://s2.googleusercontent.com/s2/favicons?domain=flipkart.com&sz=64" alt="Flipkart">Flipkart</span>
+                    <span class="logo-pill myntra"><img src="https://s2.googleusercontent.com/s2/favicons?domain=myntra.com&sz=64" alt="Myntra">Myntra</span>
+                    <span class="logo-pill snapdeal"><img src="https://s2.googleusercontent.com/s2/favicons?domain=snapdeal.com&sz=64" alt="Snapdeal">Snapdeal</span>
+                    <span class="logo-pill ajio"><img src="https://s2.googleusercontent.com/s2/favicons?domain=ajio.com&sz=64" alt="Ajio">Ajio</span>
+                    <span class="logo-pill nykaa"><img src="https://s2.googleusercontent.com/s2/favicons?domain=nykaa.com&sz=64" alt="Nykaa">Nykaa</span>
+                    <span class="logo-pill croma"><img src="https://s2.googleusercontent.com/s2/favicons?domain=croma.com&sz=64" alt="Croma">Croma</span>
+                    <span class="logo-pill reliance"><img src="https://s2.googleusercontent.com/s2/favicons?domain=reliancedigital.in&sz=64" alt="Reliance">Reliance</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel: Live Browser Feed -->
+            <section class="live-feed glass-panel">
+                <div class="feed-header">
+                    <h2>Live Browser Feed</h2>
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        <span id="statusText">Ready for commands...</span>
+                    </div>
+                </div>
+                <div class="browser-window">
+                    <div class="browser-chrome">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <div class="url-bar">https://autoshopper.local/searching...</div>
+                    </div>
+                    <div class="viewport">
+                        <img id="liveScreenshot" src="" alt="Waiting to start..." style="display: none;">
+                        <div id="placeholderText">No active task.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Results -->
+            <section class="results-panel glass-panel">
+                <h2>Top 5 Cheapest Results</h2>
+                <div id="resultsContainer" class="results-grid">
+                    <!-- Results will be injected here -->
+                    <div class="empty-state">
+                        Your findings will appear here once the agent finishes.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

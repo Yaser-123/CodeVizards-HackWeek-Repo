@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qwen local | Ollama</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Marked.js for Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Highlight.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Sleek UI Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button id="newChatBtn" class="new-chat-btn">
+                    <i class="ph ph-plus"></i> New Chat
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="history-label">Recent Chats</div>
+                <!-- Chat history list would go here in a full app -->
+                <div class="history-item active">
+                    <i class="ph ph-chat-teardrop-text"></i> Current Conversation
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="model-info">
+                    <i class="ph ph-cpu"></i>
+                    <span>qwen2.5-coder:3b</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="dot green"></span> Local API Ready
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <header class="chat-header">
+                <div class="header-title">Ollama UI</div>
+                <button id="clearChatBtn" class="action-btn" title="Clear Chat">
+                    <i class="ph ph-trash"></i>
+                </button>
+            </header>
+
+            <div class="chat-scroll-area" id="chatWindow">
+                <!-- Welcome Screen (Visible when empty) -->
+                <div id="welcomeScreen" class="welcome-screen">
+                    <div class="logo-orb">
+                        <i class="ph ph-sparkle"></i>
+                    </div>
+                    <h2>How can I help you today?</h2>
+                    
+                    <div class="suggestion-grid">
+                        <button class="suggestion-btn">
+                            <div class="suggestion-title">Explain Quantum Computing</div>
+                            <div class="suggestion-desc">in simple terms</div>
+                        </button>
+                        <button class="suggestion-btn">
+                            <div class="suggestion-title">Write a Python script</div>
+                            <div class="suggestion-desc">to scrape a website</div>
+                        </button>
+                        <button class="suggestion-btn">
+                            <div class="suggestion-title">Summarize this</div>
+                            <div class="suggestion-desc">concept into key points</div>
+                        </button>
+                        <button class="suggestion-btn">
+                            <div class="suggestion-title">Help me debug</div>
+                            <div class="suggestion-desc">my React component</div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Messages will be injected here -->
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea id="messageInput" placeholder="Message Qwen locally..." rows="1"></textarea>
+                    <button id="sendBtn" class="send-btn" disabled>
+                        <i class="ph ph-paper-plane-right"></i>
+                    </button>
+                </div>
+                <div class="footer-text">
+                    Powered by Ollama. Responses are generated locally and privately on your machine.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "secret-scanner",
+  "version": "1.0.0",
+  "description": "A lightweight, powerful, and minimalistic security tool that runs entirely locally. It scans your code right before you commit, and uses pattern matching (Regex) to ensure you never accidentally push API keys, passwords, or tokens to GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
