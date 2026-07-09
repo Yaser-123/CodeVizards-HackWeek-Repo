@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo - Browser Storage Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .demo-container {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      /* Using an iframe to simulate the extension popup window */
+    }
+    iframe {
+      border: none;
+      width: 600px;
+      height: 500px;
+      display: block;
+    }
+    h2 { text-align: center; color: #333; margin-top: -30px; margin-bottom: 20px;}
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Browser Storage Explorer (Mock Demo)</h2>
+    <div class="demo-container">
+      <iframe src="popup.html"></iframe>
+    </div>
+  </div>
+</body>
+</html>

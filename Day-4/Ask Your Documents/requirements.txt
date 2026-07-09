@@ -1,0 +1,11 @@
+flask
+langchain
+langchain-community
+langchain-huggingface
+langchain-openai
+chromadb
+pypdf
+python-dotenv
+sentence-transformers
+python-docx
+docx2txt

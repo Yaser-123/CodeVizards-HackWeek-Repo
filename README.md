@@ -52,6 +52,15 @@ All projects are built with **HTML, CSS, and JavaScript**.
 | 3 | [Secret Scanner](Day-3/Secret%20Scanner) | A local security tool to scan Git repositories for accidentally exposed API keys |
 | 4 | [Shopping Web App](Day-3/Shopping%20Web%20App) | An interactive e-commerce product catalog UI |
 
+### Day 4 — July 9
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | [Ask Your Documents](Day-4/Ask%20Your%20Documents) | Ask questions against your uploaded documents (PDFs/Text) using an LLM backend |
+| 2 | [Browser Storage Explorer](Day-4/Browser%20Storage%20Explorer) | A Chrome extension to view, edit, and manage LocalStorage and SessionStorage |
+| 3 | [CSS Art Festival](Day-4/CSS%20Art%20Festival) | A pure HTML/CSS illustration of Cristiano Ronaldo using advanced CSS geometry |
+| 4 | [Dockerizee](Day-4/Dockerizee) | A full-stack Task Manager API containerized with Docker |
+
 ---
 
 ## Tech Stack

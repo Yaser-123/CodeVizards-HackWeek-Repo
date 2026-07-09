@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura QA | Ask Your Documents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">N</div>
+                <h2>N-Doc</h2>
+            </div>
+            
+            <div class="upload-section">
+                <h3>Knowledge Base</h3>
+                <p>Upload PDFs or text files to add them to your AI's context.</p>
+                
+                <div class="drop-zone" id="dropZone">
+                    <span class="icon">📁</span>
+                    <span class="text">Click or drag files here</span>
+                    <input type="file" id="fileInput" accept=".pdf,.txt,.docx,image/*" multiple hidden>
+                </div>
+                
+                <div id="uploadStatus" class="status-msg"></div>
+            </div>
+
+            <div class="document-list">
+                <h3>Active Documents</h3>
+                <ul id="docList">
+                    <!-- Documents will appear here -->
+                    <li class="empty-state">No documents uploaded yet.</li>
+                </ul>
+            </div>
+
+            <button id="clearDocsBtn" class="clear-btn">Clear All Documents</button>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h1>Document Assistant</h1>
+                    <p>Powered by NVIDIA Minimax & Local RAG</p>
+                </div>
+            </header>
+
+            <div class="chat-history" id="chatHistory">
+                <div class="message ai welcome">
+                    <div class="avatar">N</div>
+                    <div class="content">Hello! I am N-Doc, your document intelligence assistant. Upload some files on the left and ask me anything about them!</div>
+                </div>
+                <!-- Chat messages will be injected here -->
+            </div>
+
+            <div class="input-image-preview-container" id="imagePreviewContainer">
+                <!-- Attached images preview will appear here -->
+            </div>
+
+            <div class="chat-input-area">
+                <form id="chatForm">
+                    <button type="button" class="attach-btn" id="attachBtn" title="Attach Image">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </button>
+                    <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                    <input type="text" id="chatInput" placeholder="Ask a question about your documents..." autocomplete="off">
+                    <button type="submit" id="sendBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
