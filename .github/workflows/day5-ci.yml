@@ -1,0 +1,72 @@
+name: Day 5 - CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "Day-5/Continuous Integration Pipeline/**"
+      - ".github/workflows/day5-ci.yml"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "Day-5/Continuous Integration Pipeline/**"
+
+jobs:
+  build-test-lint:
+    name: Build, Lint & Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "Day-5/Continuous Integration Pipeline"
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Linter
+      run: npm run lint
+
+    - name: Run Tests
+      run: npm test
+
+    - name: Build Application
+      run: npm run build
+
+  security-scan:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "Day-5/Continuous Integration Pipeline"
+        
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Audit npm dependencies
+      run: npm audit --audit-level=high
+
+    - name: Run Trivy Vulnerability Scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: 'Day-5/Continuous Integration Pipeline'
+        format: 'table'
+        exit-code: '0'
+        severity: 'CRITICAL,HIGH'

@@ -61,6 +61,12 @@ All projects are built with **HTML, CSS, and JavaScript**.
 | 3 | [CSS Art Festival](Day-4/CSS%20Art%20Festival) | A pure HTML/CSS illustration of Cristiano Ronaldo using advanced CSS geometry |
 | 4 | [Dockerizee](Day-4/Dockerizee) | A full-stack Task Manager API containerized with Docker |
 
+### Day 5 — July 10
+
+| # | Project | Description |
+|---|---------|-------------|
+| 1 | [Continuous Integration Pipeline](Day-5/Continuous%20Integration%20Pipeline) | A production-grade CI pipeline using GitHub Actions with Testing, Linting, and Security Scanning |
+
 ---
 
 ## Tech Stack
