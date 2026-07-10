@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Image Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="animated-background">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Duplicate Image Finder</h1>
+            <p>Effortlessly detect duplicate and visually similar images using perceptual hashing.</p>
+        </header>
+
+        <main>
+            <div class="upload-zone" id="drop-zone">
+                <input type="file" id="file-input" multiple accept="image/*" hidden>
+                <div class="upload-content">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>Drag & Drop Images Here</h3>
+                    <p>or click to browse your files</p>
+                </div>
+            </div>
+
+            <div class="preview-section" id="preview-section" style="display: none;">
+                <h3>Selected Images (<span id="file-count">0</span>)</h3>
+                <div class="thumbnails" id="thumbnails"></div>
+                <button id="analyze-btn" class="primary-btn">Analyze Images</button>
+            </div>
+
+            <div class="loader" id="loader" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing perceptual structures...</p>
+            </div>
+
+            <div class="results-section" id="results-section" style="display: none;">
+                <h2>Analysis Results</h2>
+                <div id="no-matches" class="no-matches" style="display: none;">
+                    <p>Great news! No visually similar images were found.</p>
+                </div>
+                <div class="matches-grid" id="matches-grid">
+                    <!-- Results injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Image View Modal -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <span class="close-modal" id="close-modal">&times;</span>
+        <div class="modal-content" id="modal-content">
+            <!-- Images injected here on click -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

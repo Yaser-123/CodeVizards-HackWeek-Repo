@@ -1,0 +1,398 @@
+:root {
+    --bg-dark: #000000;
+    --bg-panel: #111111;
+    --bg-card: #1A1A1A;
+    --accent: #6D001A;
+    --accent-hover: #8C0022;
+    --text-main: #FFFFFF;
+    --text-muted: #A0A0A0;
+    --border: #333333;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Screens */
+.screen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Upload Screen */
+#upload-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+}
+
+.upload-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 4rem 2rem;
+    background: var(--bg-panel);
+    border: 2px dashed var(--accent);
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover, .upload-container.dragover {
+    background: #150508;
+    border-color: var(--text-main);
+}
+
+.upload-container svg {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.upload-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-container p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+#file-input {
+    display: none;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn.primary {
+    background-color: var(--accent);
+    color: var(--text-main);
+}
+
+.btn.primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+    border-color: var(--accent);
+    background-color: rgba(109, 0, 26, 0.1);
+}
+
+.btn.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn.full-width {
+    width: 100%;
+}
+
+/* Dashboard Layout */
+#dashboard-screen {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    height: 100%;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.thumbnail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.thumbnail-item:hover {
+    border-color: var(--accent);
+}
+
+.thumbnail-item.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.thumb-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.thumb-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.thumb-name {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.2rem;
+}
+
+.thumb-size {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.thumb-remove {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.2rem;
+}
+
+.thumb-remove:hover {
+    color: var(--accent);
+}
+
+.sidebar-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Main Workspace */
+.workspace {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bg-dark);
+}
+
+.workspace-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.controls-panel {
+    padding: 1.5rem 2rem;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.slider-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+#quality-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+}
+
+#quality-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#quality-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Side by Side Image Comparison */
+.comparison-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    user-select: none;
+}
+
+.comparison-container img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.img-compressed-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%; /* Initial split */
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+}
+
+/* Inside the wrapper, the image needs to maintain its full width to match the original underneath */
+.img-compressed-wrapper img {
+    width: 100vw; /* This will be set dynamically via JS to match container width */
+}
+
+.image-label {
+    position: absolute;
+    top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0,0,0,0.7);
+    color: var(--text-main);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.label-original { right: 1rem; }
+.label-compressed { left: 1rem; }
+
+.slider-handle {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%; /* Matches wrapper width */
+    width: 40px;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+}
+
+.slider-button {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Metrics Panel */
+.metrics-panel {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: var(--bg-panel);
+    border-top: 1px solid var(--border);
+}
+
+.metric-card {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.metric-card h4 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card p {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.metric-card p.highlight {
+    color: var(--text-main);
+}

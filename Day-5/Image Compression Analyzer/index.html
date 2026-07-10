@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compression Analyzer</title>
+    <!-- Include JSZip for multiple file downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Upload Screen -->
+        <div id="upload-screen" class="screen active">
+            <div class="upload-container" id="drop-zone">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h2>Upload Images to Compress</h2>
+                <p>Drag and drop images here, or click to browse.</p>
+                <input type="file" id="file-input" multiple accept="image/png, image/jpeg, image/webp">
+                <button class="btn primary" onclick="document.getElementById('file-input').click()">Select Images</button>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Screen -->
+        <div id="dashboard-screen" class="screen">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Uploaded Files</h3>
+                    <button id="add-more-btn" class="btn secondary small">Add More</button>
+                    <input type="file" id="add-more-input" multiple accept="image/png, image/jpeg, image/webp" style="display: none;">
+                </div>
+                <div class="thumbnail-list" id="thumbnail-list">
+                    <!-- Thumbnails generated dynamically -->
+                </div>
+                <div class="sidebar-footer">
+                    <button id="download-all-btn" class="btn primary full-width">
+                        Download All (ZIP)
+                    </button>
+                </div>
+            </aside>
+
+            <main class="workspace">
+                <header class="workspace-header">
+                    <h2 id="current-filename">No image selected</h2>
+                    <button id="download-single-btn" class="btn primary">Download Current</button>
+                </header>
+
+                <div class="controls-panel">
+                    <div class="slider-group">
+                        <label for="quality-slider">Compression Quality: <span id="quality-value">80</span>%</label>
+                        <input type="range" id="quality-slider" min="1" max="100" value="80">
+                    </div>
+                </div>
+
+                <!-- Side by Side Slider -->
+                <div class="comparison-container" id="comparison-container">
+                    <div class="image-label label-original">Original</div>
+                    <div class="image-label label-compressed">Compressed</div>
+                    
+                    <img id="img-original" src="" alt="Original Image">
+                    
+                    <div class="img-compressed-wrapper" id="compressed-wrapper">
+                        <img id="img-compressed" src="" alt="Compressed Image">
+                    </div>
+                    
+                    <div class="slider-handle" id="slider-handle">
+                        <div class="slider-line"></div>
+                        <div class="slider-button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-panel">
+                    <div class="metric-card">
+                        <h4>Original Size</h4>
+                        <p id="metric-original">0 KB</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Compressed Size</h4>
+                        <p id="metric-compressed" class="highlight">0 KB</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Saved</h4>
+                        <p id="metric-saved" class="highlight">0%</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Dimensions</h4>
+                        <p id="metric-dimensions">0 x 0</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
