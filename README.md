@@ -66,6 +66,9 @@ All projects are built with **HTML, CSS, and JavaScript**.
 | # | Project | Description |
 |---|---------|-------------|
 | 1 | [Continuous Integration Pipeline](Day-5/Continuous%20Integration%20Pipeline) | A production-grade CI pipeline using GitHub Actions with Testing, Linting, and Security Scanning |
+| 2 | [Duplicate Image Finder](Day-5/Duplicate%20Image%20Finder) | A premium full-stack application using perceptual hashing to detect visually similar images |
+| 3 | [Human vs AI Detector Game](Day-5/Human%20vs%20AI%20Detector%20Game) | An interactive browser game using local audio and visual assets to detect AI vs Human media |
+| 4 | [Image Compression Analyzer](Day-5/Image%20Compression%20Analyzer) | A fast client-side image compressor with interactive before/after visual sliders and zip downloading |
 
 ---
 
